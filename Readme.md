@@ -113,3 +113,4 @@ CONFIG_PACKAGE_luci-app-dockerman=y
 
 https://github.com/kevinCSDN/Openwrt_Ax1800pro_jdc #可用
 https://github.com/N-uncle/build-openwrt
+https://github.com/wshdliu/ax1800pro
