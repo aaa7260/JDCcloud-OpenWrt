@@ -111,3 +111,4 @@ CONFIG_PACKAGE_luci-app-dockerman=y
 - [P3TERX](https://github.com/P3TERX/Actions-OpenWrt)
 [Read the details in my blog (in Chinese) | 中文教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 
+https://github.com/kevinCSDN/Openwrt_Ax1800pro_jdc #可用
