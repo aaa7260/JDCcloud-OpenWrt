@@ -16,3 +16,7 @@
 # Add a feed source
 git clone https://github.com/kenzok8/openwrt-packages package/kenzo
 git clone https://github.com/kenzok8/small package/small
+svn export https://github.com/kiddin9/openwrt-packages/tree/master/luci-app-pgyvpn package/luci-app-pgyvpn
+svn export https://github.com/kiddin9/openwrt-packages/tree/master/pgyvpn package/pgyvpn
+svn export https://github.com/kiddin9/openwrt-packages/tree/master/luci-app-phtunnel package/luci-app-phtunnel
+svn export https://github.com/kiddin9/openwrt-packages/tree/master/phtunnel package/phtunnel
