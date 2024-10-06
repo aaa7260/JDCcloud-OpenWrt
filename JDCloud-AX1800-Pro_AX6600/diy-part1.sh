@@ -17,3 +17,5 @@
 git clone https://github.com/kenzok8/openwrt-packages package/kenzo
 git clone https://github.com/kenzok8/small package/small
 
+# 添加mihomo feed
+echo "src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main" >> "feeds.conf.default"
