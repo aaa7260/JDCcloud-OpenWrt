@@ -107,7 +107,8 @@ jobs:
         git config --global user.email "buster-openwrt@ovvo.uk"
         cp $PATCHES_FILE_1 $OPENWRT_PATH/feeds/luci
         cd $OPENWRT_PATH/feeds/luci
-        git am 0001-show-soc-status-on-luci.patch
+        # git am 0001-show-soc-status-on-luci.patch
+        git apply jdcloud-ax1800-pro_ax6600.patch
   
     - name: Load Custom Configuration(加载自定义配置)
       run: |
