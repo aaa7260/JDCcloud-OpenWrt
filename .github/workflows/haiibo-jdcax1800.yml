@@ -109,7 +109,7 @@ jobs:
         #cd $OPENWRT_PATH/feeds/luci
         # git am 0001-show-soc-status-on-luci.patch
         cd $OPENWRT_PATH
-        git apply jdcloud-ax1800-pro_ax6600.patch
+        git apply $OPENWRT_PATH/feeds/luci/jdcloud-ax1800-pro_ax6600.patch
   
     - name: Load Custom Configuration(加载自定义配置)
       run: |
