@@ -10,7 +10,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: JDCloud-AX1800-Pro_AX6600/.config
+  CONFIG_FILE: JDCloud-AX1800-Pro_AX6600/ipq60xx-wifi(emmc).config
   PATCHES_FILE_1: DCloud-AX1800-Pro_AX6600/*.patch
   DIY_SCRIPT: DCloud-AX1800-Pro_AX6600/diy-script.sh
   CLASH_KERNEL: amd64
