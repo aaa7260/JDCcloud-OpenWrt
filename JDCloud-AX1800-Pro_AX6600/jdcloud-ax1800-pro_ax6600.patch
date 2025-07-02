@@ -68,7 +68,7 @@ diff --git a/target/linux/qualcommax/image/ipq60xx.mk b/target/linux/qualcommax/
 index 4f2e29b50..d24348743 100644
 --- a/target/linux/qualcommax/image/ipq60xx.mk
 +++ b/target/linux/qualcommax/image/ipq60xx.mk
-@@ -18,9 +18,8 @@ define Device/UbiFit
+@@ -18,10 +18,9 @@ define Device/UbiFit
  endef
  
  define Device/EmmcImage
