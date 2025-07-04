@@ -79,7 +79,17 @@ jobs:
         haskell: false
         large-packages: false
         swap-storage: false
-      
+     
+    - name: Combine Disks
+      uses: easimon/maximize-build-space@master
+      with:
+        swap-size-mb: 1024
+        temp-reserve-mb: 100
+        root-reserve-mb: 1024
+
+    - name: Checkout
+      uses: actions/checkout@main  
+    
     - name: 下载固件源码
       working-directory: /workdir
       run: |
