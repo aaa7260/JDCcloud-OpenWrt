@@ -92,24 +92,24 @@ jobs:
         mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
         prefix: ${{ env.OPENWRT_PATH }}
     
-    #- name: Install Feeds(安装feeds)
-      #run: |
-       # cd $OPENWRT_PATH
-        #git clone https://github.com/sbwml/luci-app-daed package/daed
-        #git clone https://github.com/sbwml/v2ray-geodata package/daed/v2ray-geodata
-        #sudo apt-get install -y clang-13
-        #./scripts/feeds update -a
-       # ./scripts/feeds install -a
-
-    - name: Apply patches(安装补丁)   
+    - name: Install Feeds(安装feeds)
       run: |
-        git config --global user.name "OpenWrt Builder"
-        git config --global user.email "buster-openwrt@ovvo.uk"
-        cp $PATCHES_FILE_1 $OPENWRT_PATH/feeds/luci
+        cd $OPENWRT_PATH
+        git clone https://github.com/sbwml/luci-app-daed package/daed
+        git clone https://github.com/sbwml/v2ray-geodata package/daed/v2ray-geodata
+        sudo apt-get install -y clang-13
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
+
+    #- name: Apply patches(安装补丁)   
+      #run: |
+       # git config --global user.name "OpenWrt Builder"
+       # git config --global user.email "buster-openwrt@ovvo.uk"
+       # cp $PATCHES_FILE_1 $OPENWRT_PATH/feeds/luci
         #cd $OPENWRT_PATH/feeds/luci
         # git am 0001-show-soc-status-on-luci.patch
-        cd $OPENWRT_PATH
-        git apply $OPENWRT_PATH/feeds/luci/jdcloud-ax1800-pro_ax6600.patch
+        #cd $OPENWRT_PATH
+       # git apply $OPENWRT_PATH/feeds/luci/jdcloud-ax1800-pro_ax6600.patch
   
     - name: Load Custom Configuration(加载自定义配置)
       run: |
