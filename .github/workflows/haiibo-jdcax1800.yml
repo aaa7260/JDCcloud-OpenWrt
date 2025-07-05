@@ -92,14 +92,14 @@ jobs:
         mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
         prefix: ${{ env.OPENWRT_PATH }}
     
-    - name: Install Feeds(安装feeds)
-      run: |
-        cd $OPENWRT_PATH
+    #- name: Install Feeds(安装feeds)
+      #run: |
+       # cd $OPENWRT_PATH
         #git clone https://github.com/sbwml/luci-app-daed package/daed
         #git clone https://github.com/sbwml/v2ray-geodata package/daed/v2ray-geodata
         #sudo apt-get install -y clang-13
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
+        #./scripts/feeds update -a
+       # ./scripts/feeds install -a
 
     - name: Apply patches(安装补丁)   
       run: |
