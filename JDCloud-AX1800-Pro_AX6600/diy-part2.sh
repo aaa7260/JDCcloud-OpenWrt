@@ -22,4 +22,4 @@ rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
 sed -i 's/+firewall/+uci-firewall/g' feeds/luci/applications/luci-app-firewall/Makefile
 # SmartDNS
 git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns package/feeds/luci/luci-app-smartdns
-git clone --depth=1 https://github.com/pymumu/openwrt-smartdns package/smartdns
+git clone --depth=1 https://github.com/pymumu/openwrt-smartdns /packages/net/smartdns
