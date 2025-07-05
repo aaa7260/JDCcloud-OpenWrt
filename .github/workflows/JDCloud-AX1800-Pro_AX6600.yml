@@ -80,15 +80,13 @@ jobs:
         large-packages: false
         swap-storage: false
      
-    - name: Combine Disks
-      uses: easimon/maximize-build-space@master
-      with:
-        swap-size-mb: 1024
-        temp-reserve-mb: 100
-        root-reserve-mb: 1024
+    - name: 强制释放磁盘空间
+      run: |
+       docker rmi $(docker images -q) || true
+       sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache || true
+       sudo apt-get autoremove -y && sudo apt-get clean
+       df -h
 
-    - name: Checkout
-      uses: actions/checkout@main  
     
     - name: 下载固件源码
       working-directory: /workdir
