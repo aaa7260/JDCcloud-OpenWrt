@@ -16,6 +16,7 @@
 # Add a feed source
 git clone https://github.com/kenzok8/openwrt-packages package/kenzo
 git clone https://github.com/kenzok8/small package/small
+git clone https://github.com/QiuSimons/luci-app-daed package/feeds/packages/daed
 
 # 添加mihomo feed
 echo "src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main" >> "feeds.conf.default"
