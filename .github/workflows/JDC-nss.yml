@@ -134,8 +134,7 @@ jobs:
 
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        make clean
-        rm -rf build_dir/target-*/linux-ipq60xx
+       
 
         
     - name: 加载config & DIY_P2_SH
