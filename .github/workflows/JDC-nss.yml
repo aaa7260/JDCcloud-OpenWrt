@@ -58,7 +58,7 @@ jobs:
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        #sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
+        # sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
         #sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
         #bzip2 ccache clang cmake cpio curl device-tree-compiler flex gawk gcc-multilib g++-multilib gettext \
         #genisoimage git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libfuse-dev libglib2.0-dev \
@@ -116,8 +116,39 @@ jobs:
         cp JDCloud-AX1800-Pro_AX6600/jdcloud-ax1800-pro_ax6600.patch openwrt/jdcloud-ax1800-pro_ax6600.patch
         cd openwrt
         #git apply jdcloud-ax1800-pro_ax6600.patch
+        echo "==> Replace NSS with ImmortalWrt version"
+
+        # 删除原本 OpenWrt/coolsnowwolf 的 NSS 目录
+        rm -rf package/qca
+        rm -rf package/kernel/qca-nss-drv
+        rm -rf package/kernel/qca-nss-clients
+
+        # 克隆 ImmortalWrt 完整 NSS 套件
+        git clone --depth=1 https://github.com/immortalwrt/immortalwrt.git immwrt
+
+        # 复制 NSS 配套包
+        cp -r immwrt/package/qca package/
+
+        # 复制 Linux 内核 NSS 钩子与补丁（非常重要）
+        cp -r immwrt/target/linux/ipq60xx/files target/linux/ipq60xx/files
+        cp -r immwrt/target/linux/ipq60xx/patches-* target/linux/ipq60xx/
+
+        # 清理临时目录
+        rm -rf immwrt
+
+        echo "==> ImmortalWrt NSS injected successfully!"
+
+        echo "==> Disable Werror for NSS"
+
+        sed -i 's/-Werror//g' package/qca/*/*/Makefile 2>/dev/null || true
+        sed -i 's/-Werror//g' package/qca/qca-nss-clients/*/Makefile 2>/dev/null || true
+
+
         ./scripts/feeds update -a
         ./scripts/feeds install -a
+        make clean
+        rm -rf build_dir/target-*/linux-ipq60xx
+
         
     - name: 加载config & DIY_P2_SH
       run: |
