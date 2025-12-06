@@ -118,32 +118,12 @@ jobs:
         #git apply jdcloud-ax1800-pro_ax6600.patch
         echo "==> Replace NSS with ImmortalWrt version"
 
-        # 删除 lede 原来的 NSS
-        rm -rf package/qca/*
-
-# 克隆 ImmortalWrt
+        # 克隆 ImmortalWrt 仓库（浅克隆即可）
         git clone --depth=1 https://github.com/immortalwrt/immortalwrt.git immwrt
 
-# 复制 NSS 包到 package/qca/
-          cp -r immwrt/package/kernel/qca-nss-drv package/qca/
-          cp -r immwrt/package/qca-nss-clients package/qca/
-          cp -r immwrt/package/qca-nss-crypto package/qca/
-          cp -r immwrt/package/qca-nss-dp package/qca/
-          cp -r immwrt/package/qca-nss-ecm package/qca/
-          cp -r immwrt/package/qca-nss-firmware package/qca/
-          cp -r immwrt/package/qca/qca-ssdk package/qca/
-
-# 复制内核补丁和钩子
-          rm -rf target/linux/ipq60xx/files
-          cp -r immwrt/target/linux/ipq60xx/files target/linux/ipq60xx/
-          rm -rf target/linux/ipq60xx/patches-*
-          cp -r immwrt/target/linux/ipq60xx/patches-* target/linux/ipq60xx/
-
-# 删除临时目录
-        rm -rf immwrt
-        echo "==> ImmortalWrt NSS injected successfully!"
-
-        echo "==> Disable Werror for NSS"
+        # 保留 LEDE 原 package/qca，应用 ImmortalWrt 内核 patch 与 hooks
+        cp -r immwrt/target/linux/qualcommax/patches-6.12/* target/linux/qualcommax/patches-6.12/
+        cp -r immwrt/target/linux/qualcommax/files/* target/linux/qualcommax/files/
 
         sed -i 's/-Werror//g' package/qca/*/*/Makefile 2>/dev/null || true
         sed -i 's/-Werror//g' package/qca/qca-nss-clients/*/Makefile 2>/dev/null || true
