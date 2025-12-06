@@ -55,6 +55,7 @@ jobs:
     - name: 初始化编译环境
       env:
         DEBIAN_FRONTEND: noninteractive
+        TERM: xterm-256color
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
@@ -124,6 +125,8 @@ jobs:
         # 保留 LEDE 原 package/qca，应用 ImmortalWrt 内核 patch 与 hooks
         cp -r immwrt/target/linux/qualcommax/patches-6.12/* target/linux/qualcommax/patches-6.12/
         cp -r immwrt/target/linux/qualcommax/files/* target/linux/qualcommax/files/
+        sed -i '/CONFIG_PACKAGE_luci-app-fchomo/d' openwrt/.config
+        sed -i '/CONFIG_PACKAGE_nikki/d' openwrt/.config
 
         sed -i 's/-Werror//g' package/qca/*/*/Makefile 2>/dev/null || true
         sed -i 's/-Werror//g' package/qca/qca-nss-clients/*/Makefile 2>/dev/null || true
