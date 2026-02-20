@@ -100,7 +100,7 @@ jobs:
       run: |
         cp JDCloud-AX1800-Pro_AX6600/jdcloud-ax1800-pro_ax6600.patch openwrt/jdcloud-ax1800-pro_ax6600.patch
         cd openwrt
-        git apply jdcloud-ax1800-pro_ax6600.patch
+        # git apply jdcloud-ax1800-pro_ax6600.patch
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
