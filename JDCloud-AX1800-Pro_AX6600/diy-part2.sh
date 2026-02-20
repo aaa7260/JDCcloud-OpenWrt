@@ -32,3 +32,4 @@ rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
 # 3. 修正网络接口映射
 # find target/linux/qualcommax/ -name "02_network" | xargs -i sed -i 's/jdcloud,re-cs-02/jdcloud,ax6600/g' {}
 # find target/linux/qualcommax/ -name "02_network" | xargs -i sed -i 's/jdcloud,re-ss-01/jdcloud,ax1800-pro/g' {}
+sed -i 's/pad-to 6144k/pad-to 12288k/g' target/linux/qualcommax/image/ipq60xx.mk
