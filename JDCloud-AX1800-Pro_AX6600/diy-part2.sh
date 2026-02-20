@@ -19,3 +19,5 @@ chmod +x /tmp/clash >/dev/null 2>&1
 mkdir -p package/kenzo/luci-app-openclash/root/etc/openclash/core
 mv /tmp/clash package/kenzo/luci-app-openclash/root/etc/openclash/core/clash_meta >/dev/null 2>&1
 rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
+# 确保系统能正确找到雅典娜的无线校准数据
+sed -i 's/jdcloud,re-cs-02/jdcloud,ax6600/g' target/linux/qualcommax/ipq60xx/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
