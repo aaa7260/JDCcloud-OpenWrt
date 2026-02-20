@@ -38,35 +38,35 @@ rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
 #第一步：修改 U-Boot 环境变量工具
 #（这段代码会在指定机型后插入新机型名称）
 
-#sed -i '/redmi,ax5-jdcloud)/i jdcloud,ax6600|\\njdcloud,ax1800-pro|\' package/boot/uboot-envtools/files/qualcommax
+sed -i '/redmi,ax5-jdcloud)/i jdcloud,ax6600|\\njdcloud,ax1800-pro|\' package/boot/uboot-envtools/files/qualcommax
 
 #第二步：设备树文件重命名（这是将旧代号改为市场型号的关键步骤）
 
-#mv target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-re-ss-01.dts target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-ax1800-pro.dts
+mv target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-re-ss-01.dts target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-ax1800-pro.dts
 
-#mv target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-ax6600.dts
+mv target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-ax6600.dts
 
 #第三步：修改镜像生成脚本 (ipq60xx.mk)
 #（注意： 我这里去掉了改 6144k 的逻辑，默认保持 12288k 以适配你的大分区 U-Boot）
 
-#sed -i 's/jdcloud_re-ss-01/jdcloud_ax1800-pro/g' target/linux/qualcommax/image/ipq60xx.mk
+sed -i 's/jdcloud_re-ss-01/jdcloud_ax1800-pro/g' target/linux/qualcommax/image/ipq60xx.mk
 
-#sed -i 's/jdcloud_re-cs-02/jdcloud_ax6600/g' target/linux/qualcommax/image/ipq60xx.mk
+sed -i 's/jdcloud_re-cs-02/jdcloud_ax6600/g' target/linux/qualcommax/image/ipq60xx.mk
 
-#sed -i 's/jdcloud_ax1800pro/jdcloud_ax1800-pro/g' target/linux/qualcommax/image/ipq60xx.mk
+sed -i 's/jdcloud_ax1800pro/jdcloud_ax1800-pro/g' target/linux/qualcommax/image/ipq60xx.mk
 
-#sed -i 's/pad-to 6144k/pad-to 12288k/g' target/linux/qualcommax/image/ipq60xx.mk
+sed -i 's/pad-to 6144k/pad-to 12288k/g' target/linux/qualcommax/image/ipq60xx.mk
 
 #第四步：修改设备识别与网络配置
 #（让系统内核认出新名字）
 
-#sed -i 's/jdcloud,re-ss-01/jdcloud,ax1800-pro/g' target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-ax1800-pro.dts
+sed -i 's/jdcloud,re-ss-01/jdcloud,ax1800-pro/g' target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-ax1800-pro.dts
 
-#sed -i 's/jdcloud,re-cs-02/jdcloud,ax6600/g' target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-ax6600.dts
+sed -i 's/jdcloud,re-cs-02/jdcloud,ax6600/g' target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-ax6600.dts
 
 #第五步：全局替换系统脚本中的旧代号
 #（包含 Network、Caldata、升级脚本等）
 
-#grep -rl 'jdcloud,re-ss-01' target/linux/qualcommax/ipq60xx/base-files/ | xargs sed -i 's/jdcloud,re-ss-01/jdcloud,ax1800-pro/g'
+grep -rl 'jdcloud,re-ss-01' target/linux/qualcommax/ipq60xx/base-files/ | xargs sed -i 's/jdcloud,re-ss-01/jdcloud,ax1800-pro/g'
 
-#grep -rl 'jdcloud,re-cs-02' target/linux/qualcommax/ipq60xx/base-files/ | xargs sed -i 's/jdcloud,re-cs-02/jdcloud,ax6600/g'
+grep -rl 'jdcloud,re-cs-02' target/linux/qualcommax/ipq60xx/base-files/ | xargs sed -i 's/jdcloud,re-cs-02/jdcloud,ax6600/g'
