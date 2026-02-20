@@ -16,3 +16,4 @@
 # Add a feed source
 git clone https://github.com/kenzok8/openwrt-packages package/kenzo
 git clone https://github.com/kenzok8/small package/small
+echo "src-git cups https://github.com/SoPudge/lede-cups.git" >> feeds.conf.default
