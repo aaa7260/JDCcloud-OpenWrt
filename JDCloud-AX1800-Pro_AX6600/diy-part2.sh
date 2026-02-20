@@ -29,5 +29,5 @@ sed -i 's/jdcloud,re-ss-01/jdcloud,ax1800-pro/g' target/linux/qualcommax/ipq60xx
 sed -i '/redmi,ax5-jdcloud)/i \jdcloud,ax6600|\\\njdcloud,ax1800-pro|\\' package/boot/uboot-envtools/files/qualcommax
 
 # （可选）让固件显示的型号名更好看
-sed -i 's/DEVICE_MODEL := AX6600/DEVICE_MODEL := Athena-AX6600/g' target/linux/qualcommax/image/ipq60xx.mk
-sed -i 's/DEVICE_MODEL := AX1800 Pro/DEVICE_MODEL := Arthur-AX1800-Pro/g' target/linux/qualcommax/image/ipq60xx.mk
+# sed -i 's/DEVICE_MODEL := AX6600/DEVICE_MODEL := Athena-AX6600/g' target/linux/qualcommax/image/ipq60xx.mk
+# sed -i 's/DEVICE_MODEL := AX1800 Pro/DEVICE_MODEL := Arthur-AX1800-Pro/g' target/linux/qualcommax/image/ipq60xx.mk
