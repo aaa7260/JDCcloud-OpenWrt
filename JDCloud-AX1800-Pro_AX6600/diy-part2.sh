@@ -72,7 +72,7 @@ target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
 #sed -i 's/jdcloud_ax1800pro/jdcloud_ax1800-pro/g' target/linux/qualcommax/image/ipq60xx.mk
 
 #sed -i 's/pad-to 6144k/pad-to 12288k/g' target/linux/qualcommax/image/ipq60xx.mk
-sed -i 's/pad-to 12288k/pad-to 6144k/' target/linux/qualcommax/image/ipq60xx.mk
+#sed -i 's/pad-to 12288k/pad-to 6144k/' target/linux/qualcommax/image/ipq60xx.mk
 
 #第四步：修改设备识别与网络配置
 #（让系统内核认出新名字）
