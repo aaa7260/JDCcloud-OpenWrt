@@ -70,4 +70,10 @@ rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
 #grep -rl 'jdcloud,re-ss-01' target/linux/qualcommax/ipq60xx/base-files/ | xargs sed -i 's/jdcloud,re-ss-01/jdcloud,ax1800-pro/g'
 
 #grep -rl 'jdcloud,re-cs-02' target/linux/qualcommax/ipq60xx/base-files/ | xargs sed -i 's/jdcloud,re-cs-02/jdcloud,ax6600/g'
-cp JDCloud-AX1800-Pro_AX6600/999-jdcloud-full-support.patch target/linux/qualcommax/patches-6.6/999-jdcloud-full-support.patch
+# 复制 jdcloud patch 到 OpenWrt 源码 patches 目录
+cp $GITHUB_WORKSPACE/JDCloud-AX1800-Pro_AX6600/999-jdcloud-full-support.patch \
+   target/linux/qualcommax/patches-6.6/999-jdcloud-full-support.patch
+
+# 可选：显示一下 patch 已经放到的位置，方便调试
+echo "Patch copied to target/linux/qualcommax/patches-6.6/"
+ls -l target/linux/qualcommax/patches-6.6/
