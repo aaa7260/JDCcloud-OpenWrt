@@ -79,5 +79,6 @@ echo "Patch copied to target/linux/qualcommax/patches-6.6/"
 ls -l target/linux/qualcommax/patches-6.6/
 # 打印修改后的 mk 文件关键段落（用于在 Actions 日志中查看）
 echo "==================== 调试：检查 ipq60xx.mk 修改结果 ===================="
-grep -A 15 "jdcloud" target/linux/qualcommax/image/ipq60xx.mk
+# grep -A 15 "jdcloud" target/linux/qualcommax/image/ipq60xx.mk
+cat target/linux/qualcommax/image/ipq60xx.mk
 echo "========================================================================"
