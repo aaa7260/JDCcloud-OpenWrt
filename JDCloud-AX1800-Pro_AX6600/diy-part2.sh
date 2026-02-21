@@ -70,4 +70,4 @@ rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
 #grep -rl 'jdcloud,re-ss-01' target/linux/qualcommax/ipq60xx/base-files/ | xargs sed -i 's/jdcloud,re-ss-01/jdcloud,ax1800-pro/g'
 
 #grep -rl 'jdcloud,re-cs-02' target/linux/qualcommax/ipq60xx/base-files/ | xargs sed -i 's/jdcloud,re-cs-02/jdcloud,ax6600/g'
-999-jdcloud-full-support.patch
+cp JDCloud-AX1800-Pro_AX6600/999-jdcloud-full-support.patch target/linux/qualcommax/patches-6.6/999-jdcloud-full-support.patch
