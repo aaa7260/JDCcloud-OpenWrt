@@ -72,7 +72,7 @@ target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
 #sed -i 's/jdcloud_ax1800pro/jdcloud_ax1800-pro/g' target/linux/qualcommax/image/ipq60xx.mk
 
 #sed -i 's/pad-to 6144k/pad-to 12288k/g' target/linux/qualcommax/image/ipq60xx.mk
-sed -i 's/pad-to 12288k/pad-to 6144k/' target/linux/qualcommax/image/ipq60xx.mk
+sed -i 's/pad-to 12288k/pad-to 6144k/g' target/linux/qualcommax/image/ipq60xx.mk
 
 #第四步：修改设备识别与网络配置
 #（让系统内核认出新名字）
@@ -91,7 +91,8 @@ sed -i 's/pad-to 12288k/pad-to 6144k/' target/linux/qualcommax/image/ipq60xx.mk
 # 复制 jdcloud patch 到 OpenWrt 源码 patches 目录
 #cp $GITHUB_WORKSPACE/JDCloud-AX1800-Pro_AX6600/999-jdcloud-full-support.patch \
 #   target/linux/qualcommax/patches-6.6/999-jdcloud-full-support.patch
-
+#清除缓存
+rm -rf tmp/
 # 可选：显示一下 patch 已经放到的位置，方便调试
 echo "Patch copied to target/linux/qualcommax/patches-6.6/"
 ls -l target/linux/qualcommax/patches-6.6/
