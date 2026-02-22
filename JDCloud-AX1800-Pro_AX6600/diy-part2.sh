@@ -45,23 +45,24 @@ sed -i "/redmi,ax5-jdcloud)/i jdcloud,ax6600|\\\\\njdcloud,ax1800-pro|\\\\" pack
 
 #mv target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-ax6600.dts
 #修改 DTS 内容
-sed -i 's/led-boot = &led_status_green;/led-boot = \&led_status_red;/' \
-target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-re-ss-01.dts
+#sed -i 's/led-boot = &led_status_green;/led-boot = \&led_status_red;/' \
+#target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-re-ss-01.dts
 
-sed -i 's/led-running = &led_status_blue;/led-running = \&led_status_green;/' \
-target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-re-ss-01.dts
+#sed -i 's/led-running = &led_status_blue;/led-running = \&led_status_green;/' \
+#target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-re-ss-01.dts
 
-sed -i 's/led-upgrade = &led_status_red;/led-upgrade = \&led_status_green;/' \
-target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-re-ss-01.dts
+#sed -i 's/led-upgrade = &led_status_red;/led-upgrade = \&led_status_green;/' \
+#target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6000-re-ss-01.dts
 
-sed -i 's/led-boot = &led_status_green;/led-boot = \&led_status_red;/' \
-target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
+#sed -i 's/led-boot = &led_status_green;/led-boot = \&led_status_red;/' \
+#target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
 
-sed -i 's/led-running = &led_status_blue;/led-running = \&led_status_green;/' \
-target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
+#sed -i 's/led-running = &led_status_blue;/led-running = \&led_status_green;/' \
+#target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
 
-sed -i 's/led-upgrade = &led_status_red;/led-upgrade = \&led_status_green;/' \
-target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
+#sed -i 's/led-upgrade = &led_status_red;/led-upgrade = \&led_status_green;/' \
+#target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
+
 #第三步：修改镜像生成脚本 (ipq60xx.mk)
 #（注意： 我这里去掉了改 6144k 的逻辑，默认保持 12288k 以适配你的大分区 U-Boot）
 
