@@ -74,6 +74,8 @@ sed -i "/redmi,ax5-jdcloud)/i jdcloud,ax6600|\\\\\njdcloud,ax1800-pro|\\\\" pack
 
 #sed -i 's/pad-to 6144k/pad-to 12288k/g' target/linux/qualcommax/image/ipq60xx.mk
 sed -i 's/pad-to 12288k/pad-to 6144k/g' target/linux/qualcommax/image/ipq60xx.mk
+# 将该行完全替换为包含无线包定义的新内容
+sed -i "s/DEVICE_DTS_CONFIG \:= config@cp03-c3/DEVICE_DTS_CONFIG \:= ipq6010-re-cs-02/" target/linux/qualcommax/image/ipq60xx.mk
 
 #第四步：修改设备识别与网络配置
 #（让系统内核认出新名字）
@@ -193,14 +195,6 @@ echo "启用的包: $(grep -c "=y" .config) 个"
 echo "禁用的包: $(grep -c "=n" .config) 个"
 echo "内核模块: $(grep -c "CONFIG_PACKAGE_kmod" .config) 个"
 echo "LUCI应用: $(grep -c "CONFIG_PACKAGE_luci-app" .config) 个"
-
-echo "=== 前30行内容 ==="
-head -30 .config
-
-#echo "=== 问题区域检查(260-290行) ==="
-sed -n '260,290p' .config
-
-echo "=== 配置完成 ==="
 
 
 
