@@ -162,7 +162,7 @@ echo "CONFIG_PACKAGE_luci-app-$argon-config=y" >> ./.config
 #	echo -e "$WRT_PACKAGE" >> ./.config
 #fi
 WRT_CONFIG=$GITHUB_WORKSPACE/JDCloud-AX1800-Pro_AX6600/.config
-WRT_TARGET=$(grep -m 1 -oP '^CONFIG_TARGET_\K[\w]+(?=\=y)' $WRT_CONFIG)"
+WRT_TARGET=$(grep -m 1 -oP '^CONFIG_TARGET_\K[\w]+(?=\=y)' $WRT_CONFIG)
 #高通平台调整
 DTS_PATH="./target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/"
 if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
