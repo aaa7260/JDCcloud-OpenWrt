@@ -75,10 +75,12 @@ sed -i "/redmi,ax5-jdcloud)/i jdcloud,ax6600|\\\\\njdcloud,ax1800-pro|\\\\" pack
 #sed -i 's/pad-to 6144k/pad-to 12288k/g' target/linux/qualcommax/image/ipq60xx.mk
 sed -i 's/pad-to 12288k/pad-to 6144k/g' target/linux/qualcommax/image/ipq60xx.mk
 # 将该行完全替换为包含无线包定义的新内容
-sed -i "s/DEVICE_DTS_CONFIG \:= config@cp03-c3/DEVICE_DTS_CONFIG \:= ipq6010-re-cs-02/" target/linux/qualcommax/image/ipq60xx.mk
+#sed -i "s/DEVICE_DTS_CONFIG \:= config@cp03-c3/DEVICE_DTS_CONFIG \:= ipq6010-re-cs-02/" target/linux/qualcommax/image/ipq60xx.mk
 cat target/linux/qualcommax/image/ipq60xx.mk
-#rm target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
-#cp $GITHUB_WORKSPACE/JDCloud-AX1800-Pro_AX6600/ipq6010-re-cs-02.dts target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
+rm target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
+rm target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs.dtsi
+cp $GITHUB_WORKSPACE/JDCloud-AX1800-Pro_AX6600/ipq6010-re-cs-02.dts target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs-02.dts
+cp $GITHUB_WORKSPACE/JDCloud-AX1800-Pro_AX6600/ipq6010-re-cs.dtsi target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6010-re-cs.dtsi
 #第四步：修改设备识别与网络配置
 #（让系统内核认出新名字）
 
