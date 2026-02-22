@@ -18,4 +18,4 @@ git clone https://github.com/kenzok8/openwrt-packages package/kenzo
 git clone https://github.com/kenzok8/small package/small
 echo "src-git cups https://github.com/SoPudge/lede-cups.git" >> feeds.conf.default
 git clone https://github.com/haipengno1/luci-app-athena-led package/luci-app-athena-led
-cp -f $GITHUB_WORKSPACE/cups-2.3.3-source.tar.gz dl/cups-2.3.3-source.tar.gz
+mkdir -p dl && cp -f $GITHUB_WORKSPACE/cups-2.3.3-source.tar.gz dl/cups-2.3.3-source.tar.gz
