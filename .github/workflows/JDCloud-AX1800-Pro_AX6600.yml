@@ -163,7 +163,7 @@ jobs:
         mapfile -t devices < <(echo "$matched_lines" | sed -n 's/.*DEVICE_\([^=]*\)=y/\1/p')
         cd bin/targets/*/*
         # 2. 将编译时真正的 .config 复制进来并改名，方便 Release 查看
-        cp $GITHUB_WORKSPACE/openwrt/.config ./build_config.txt
+        #cp $GITHUB_WORKSPACE/openwrt/.config ./build_config.txt
         rm -rf packages
         for val in "${devices[@]}"; do
                 echo "Processing device: $val"
@@ -179,7 +179,7 @@ jobs:
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
         # 5. 将备份的 config 也重命名，使其更具辨识度
-        mv build_config.txt "${{ env.FILE_DATE }}-${{ env.OPENWRT_NAME }}-Config.txt"
+        #mv build_config.txt "${{ env.FILE_DATE }}-${{ env.OPENWRT_NAME }}-Config.txt"
 
     - name: 打包上传固件到Actions Artifacts
       uses: actions/upload-artifact@main
