@@ -76,6 +76,7 @@ sed -i "/redmi,ax5-jdcloud)/i jdcloud,ax6600|\\\\\njdcloud,ax1800-pro|\\\\" pack
 sed -i 's/pad-to 12288k/pad-to 6144k/g' target/linux/qualcommax/image/ipq60xx.mk
 # 将该行完全替换为包含无线包定义的新内容
 sed -i "s/DEVICE_DTS_CONFIG \:= config@cp03-c3/DEVICE_DTS_CONFIG \:= ipq6010-re-cs-02/" target/linux/qualcommax/image/ipq60xx.mk
+cat target/linux/qualcommax/image/ipq60xx.mk
 
 #第四步：修改设备识别与网络配置
 #（让系统内核认出新名字）
