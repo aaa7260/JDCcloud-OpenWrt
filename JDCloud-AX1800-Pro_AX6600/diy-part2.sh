@@ -9,7 +9,7 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
-sed -i 's/\r$//' $DIY_P2_SH
+#sed -i 's/\r$//' $DIY_P2_SH
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 ##-----------------Add meta core for kenzo OpenClash------------------
