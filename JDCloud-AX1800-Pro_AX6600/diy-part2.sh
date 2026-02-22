@@ -91,6 +91,8 @@ sed -i 's/pad-to 12288k/pad-to 6144k/g' target/linux/qualcommax/image/ipq60xx.mk
 # 复制 jdcloud patch 到 OpenWrt 源码 patches 目录
 #cp $GITHUB_WORKSPACE/JDCloud-AX1800-Pro_AX6600/999-jdcloud-full-support.patch \
 #   target/linux/qualcommax/patches-6.6/999-jdcloud-full-support.patch
+cp -f $GITHUB_WORKSPACE/cups-2.3.3-source.tar.gz dl/cups-2.3.3-source.tar.gz
+ls -l dl | grep "cups"
 #清除缓存
 rm -rf tmp/
 # 可选：显示一下 patch 已经放到的位置，方便调试
