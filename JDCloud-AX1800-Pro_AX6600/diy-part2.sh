@@ -100,3 +100,7 @@ echo "==================== 调试：检查 ipq60xx.mk 修改结果 =============
 # grep -A 15 "jdcloud" target/linux/qualcommax/image/ipq60xx.mk
 cat target/linux/qualcommax/image/ipq60xx.mk
 echo "========================================================================"
+# 打印config文件关键段落（用于在 Actions 日志中查看）
+echo "==================== 调试：检查 config 结果 ===================="
+grep -v  "is not set" ./.config
+echo "========================================================================"
