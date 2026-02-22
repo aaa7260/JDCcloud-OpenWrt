@@ -197,4 +197,4 @@ echo "内核模块: $(grep -c "CONFIG_PACKAGE_kmod" .config) 个"
 echo "LUCI应用: $(grep -c "CONFIG_PACKAGE_luci-app" .config) 个"
 
 
-
+make clean
