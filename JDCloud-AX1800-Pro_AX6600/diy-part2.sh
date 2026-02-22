@@ -197,7 +197,7 @@ echo "LUCI应用: $(grep -c "CONFIG_PACKAGE_luci-app" .config) 个"
 echo "=== 前30行内容 ==="
 head -30 .config
 
-echo "=== 问题区域检查 (260-290行) ==="
+#echo "=== 问题区域检查(260-290行) ==="
 sed -n '260,290p' .config
 
 echo "=== 配置完成 ==="
