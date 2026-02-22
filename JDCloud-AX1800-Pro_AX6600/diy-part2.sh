@@ -117,6 +117,8 @@ sed -i "s/luci-theme-bootstrap/luci-theme-argon/g" $(find ./feeds/luci/collectio
 #修改immortalwrt.lan关联IP
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/192\.168\.10\.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 #添加编译日期标识
+WRT_DATE=$(TZ=UTC-8 date +"%y.%m.%d-%H.%M.%S")
+WRT_MARK=${GITHUB_REPOSITORY%%/*}
 sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ $WRT_MARK-$WRT_DATE')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
 #sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Built by Roc')/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 
